@@ -7,24 +7,17 @@
           null
         ]
       },
-      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/host.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/controllers/welcome_controller.rb": {
         "lines": [
           1,
           1,
+          7,
+          null,
           null
         ]
       },
-      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/application_record.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/controllers/application_controller.rb": {
         "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/party_user.rb": {
-        "lines": [
-          1,
-          1,
           1,
           null
         ]
@@ -37,12 +30,22 @@
           null
         ]
       },
-      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/viewing_party.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/application_record.rb": {
         "lines": [
           1,
           1,
+          null
+        ]
+      },
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/controllers/users_controller.rb": {
+        "lines": [
           1,
           1,
+          null,
+          null,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -56,15 +59,37 @@
         "branches": {
         }
       },
-      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/jobs/application_job.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/party_user.rb": {
         "lines": [
+          0,
+          0,
           0,
           0
         ],
         "branches": {
         }
       },
-      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/controllers/application_controller.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/host.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/viewing_party.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/jobs/application_job.rb": {
         "lines": [
           0,
           0
@@ -93,6 +118,6 @@
         }
       }
     },
-    "timestamp": 1643740720
+    "timestamp": 1643744373
   }
 }
