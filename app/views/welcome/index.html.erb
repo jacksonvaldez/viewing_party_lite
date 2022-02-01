@@ -1,5 +1,5 @@
 <h1>Viewing Party Lite</h1>
-<%= button_to "Create User", "/users/new", method: :get %>
+<%= button_to "Create User", "/register", method: :get %>
 
 <% @users.each do |user| %>
   <h3><%= link_to "#{user.email}'s Dashboard", "/users/#{user.id}" %></h3>

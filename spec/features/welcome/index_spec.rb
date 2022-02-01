@@ -14,8 +14,8 @@ RSpec.describe "Welcome Page" do
 
   it 'the create user button to the correct path' do
     click_on "Create User"
-
-    expect(current_path).to eq("/users/new")
+    # binding.pry
+    expect(current_path).to eq("/register")
   end
 
   it 'lists existing users with a link for their dashboard' do
