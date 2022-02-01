@@ -18,10 +18,9 @@ RSpec.describe "New User Form" do
     fill_in(:user_username, with: 'john')
     fill_in(:user_email, with: 'john@yahoo.com')
     fill_in(:user_password, with: 'password123')
-
     click_on "Register"
 
-    added_user = User.where(username: 'john', email: 'john@yahoo.com', user_password: 'password123').first
+    added_user = User.where(username: 'john', email: 'john@yahoo.com').first
 
     expect(current_path).to eq("/users/#{added_user.id}")
   end

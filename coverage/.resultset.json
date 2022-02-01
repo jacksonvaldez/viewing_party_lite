@@ -16,11 +16,39 @@
           1,
           null,
           null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
           null
         ]
       },
       "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/controllers/application_controller.rb": {
         "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/application_record.rb": {
+        "lines": [
+          1,
           1,
           null
         ]
@@ -31,21 +59,6 @@
           1,
           7,
           null,
-          null
-        ]
-      },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/user.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
           null
         ]
       },
@@ -118,6 +131,6 @@
         }
       }
     },
-    "timestamp": 1643748065
+    "timestamp": 1643749320
   }
 }

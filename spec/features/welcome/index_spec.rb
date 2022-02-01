@@ -19,8 +19,8 @@ RSpec.describe "Welcome Page" do
   end
 
   it 'lists existing users with a link for their dashboard' do
-    carol = User.create!(username: "Carol", email: "carol@gmail.com", password_digest: "1234")
-    timmy = User.create!(username: "Timmy", email: "timmy@gmail.com", password_digest: "5678")
+    carol = User.create!(username: "Carol", email: "carol@gmail.com", password: "1234")
+    timmy = User.create!(username: "Timmy", email: "timmy@gmail.com", password: "5678")
     visit "/"
     expect(page).to have_link("carol@gmail.com's Dashboard")
     expect(page).to have_link("timmy@gmail.com's Dashboard")

@@ -1,0 +1,12 @@
+<%= form_with url: '/users', model: User.new do |f| %>
+  <%= f.label "Username:" %>
+  <%= f.text_field :username %>
+
+  <%= f.label "Email:" %>
+  <%= f.text_field :email %>
+
+  <%= f.label "New Password:" %>
+  <%= f.text_field :password %>
+
+  <%= f.submit "Register" %>
+<% end %>
