@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Welcome Page" do
   before :each do
-    visit root_path
+    visit "/"
   end
   it 'displays the name of the application' do
     expect(page).to have_content("Viewing Party Lite")
@@ -15,13 +15,13 @@ RSpec.describe "Welcome Page" do
   it 'the create user button to the correct path' do
     click_on "Create User"
 
-    expect(current_path).to eq("/register")
+    expect(current_path).to eq("/users/new")
   end
 
   it 'lists existing users with a link for their dashboard' do
-    carol = User.create!(username: "Carol", email: "carol@gmail.com", password: "1234")
-    timmy = User.create!(username: "Timmy", email: "timmy@gmail.com", password: "5678")
-
+    carol = User.create!(username: "Carol", email: "carol@gmail.com", password_digest: "1234")
+    timmy = User.create!(username: "Timmy", email: "timmy@gmail.com", password_digest: "5678")
+    visit "/"
     expect(page).to have_link("carol@gmail.com's Dashboard")
     expect(page).to have_link("timmy@gmail.com's Dashboard")
 
@@ -37,4 +37,4 @@ RSpec.describe "Welcome Page" do
     click_on "Home"
     expect(current_path).to eq("/")
   end
-end 
+end
