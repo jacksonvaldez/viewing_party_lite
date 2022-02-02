@@ -3,6 +3,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
+    @facade = MovieFacade.new
+
+    @invited_parties = @user.viewing_parties
+    @hosted_parties = ViewingParty.where(user_id: @user.id)
   end
 
   def create

@@ -7,6 +7,43 @@
           null
         ]
       },
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/party_user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/viewing_party.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/controllers/users_controller.rb": {
         "lines": [
           1,
@@ -14,6 +51,11 @@
           null,
           null,
           1,
+          8,
+          8,
+          null,
+          8,
+          8,
           null,
           null,
           1,
@@ -33,23 +75,94 @@
           null
         ]
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/user.rb": {
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/facades/movie_facade.rb": {
         "lines": [
           1,
-          1,
-          1,
           null,
           1,
-          1,
+          26,
+          26,
+          null,
           null,
           1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          1,
+          26,
+          null,
           null
         ]
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/application_record.rb": {
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/services/movie_service.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          8,
+          null,
+          null,
+          1,
+          26,
+          26,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          26,
+          14,
+          14,
+          null,
+          12,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/poros/movie.rb": {
         "lines": [
           1,
           1,
+          null,
+          1,
+          26,
+          26,
+          null,
+          null
+        ]
+      },
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/controllers/discover_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/controllers/movies_controller.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          2,
+          null,
           null
         ]
       },
@@ -72,8 +185,13 @@
         "branches": {
         }
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/party_user.rb": {
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/poros/search_movies.rb": {
         "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
           0,
           0,
           0,
@@ -82,17 +200,12 @@
         "branches": {
         }
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/host.rb": {
+      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/poros/top_rated_movies.rb": {
         "lines": [
           0,
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/viewing_party.rb": {
-        "lines": [
+          null,
+          0,
           0,
           0,
           0,
@@ -131,6 +244,6 @@
         }
       }
     },
-    "timestamp": 1643749320
+    "timestamp": 1643827966
   }
 }
