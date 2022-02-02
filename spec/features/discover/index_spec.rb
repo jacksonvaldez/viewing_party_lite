@@ -11,6 +11,7 @@ RSpec.describe "Discover movies index page" do
   end
 
   it "top rated button takes you to correct path" do
+    # save_and_open_page
     click_on "Top Rated Movies"
 
     expect(current_path).to eq("/users/#{@user.id}/movies")
@@ -27,4 +28,4 @@ RSpec.describe "Discover movies index page" do
 
     expect(current_path).to eq("/users/#{@user.id}/movies")
   end
-end 
+end

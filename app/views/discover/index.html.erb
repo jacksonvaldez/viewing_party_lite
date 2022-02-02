@@ -1,0 +1,8 @@
+<h1>Discover Movies</h1>
+
+<%= form_with url: "movies", method: :get do |f|%>
+  <%= f.text_field :search_query%>
+  <%= f.submit "Find Movies" %>
+<% end %>
+
+<%= button_to "Top Rated Movies", "movies", method: :get %>
