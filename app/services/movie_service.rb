@@ -1,4 +1,9 @@
 class MovieService
+  
+  def movie_id_search(id)
+    api_key = ENV['movie_api_key']
+    get_url("movie/#{id}?api_key=#{api_key}&language=en-US")
+  end
 
   def search_movies(query)
     api_key = ENV['movie_api_key']
