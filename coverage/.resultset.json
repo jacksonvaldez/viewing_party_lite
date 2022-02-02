@@ -1,28 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/helpers/application_helper.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/party_user.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/user.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/user.rb": {
         "lines": [
           1,
           1,
@@ -35,147 +20,44 @@
           null
         ]
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/models/viewing_party.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/application_record.rb": {
         "lines": [
-          1,
-          1,
           1,
           1,
           null
         ]
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/controllers/users_controller.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/controllers/discover_controller.rb": {
         "lines": [
           1,
-          1,
-          null,
           null,
           1,
-          8,
-          8,
+          4,
           null,
-          8,
-          8,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
           null,
           null
         ]
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/controllers/application_controller.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/facades/movie_facade.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/controllers/movies_controller.rb": {
         "lines": [
           1,
-          null,
           1,
-          26,
-          26,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          1,
-          26,
-          null,
-          null
-        ]
-      },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/services/movie_service.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          8,
-          null,
-          null,
-          1,
-          26,
-          26,
-          null,
           null,
           1,
           0,
           0,
           null,
           null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          1,
-          null,
-          null,
-          26,
-          14,
-          14,
-          null,
-          12,
-          null,
-          null,
           null
         ]
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/poros/movie.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          26,
-          26,
-          null,
-          null
-        ]
-      },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/controllers/discover_controller.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/controllers/movies_controller.rb": {
-        "lines": [
-          1,
-          1,
-          2,
-          2,
-          null,
-          null
-        ]
-      },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/controllers/welcome_controller.rb": {
-        "lines": [
-          1,
-          1,
-          7,
-          null,
-          null
-        ]
-      },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/mailers/application_mailer.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -185,7 +67,52 @@
         "branches": {
         }
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/poros/search_movies.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/party_user.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/models/viewing_party.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/facades/movie_facade.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/poros/search_movies.rb": {
         "lines": [
           0,
           0,
@@ -200,7 +127,7 @@
         "branches": {
         }
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/poros/top_rated_movies.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/poros/top_rated_movies.rb": {
         "lines": [
           0,
           0,
@@ -215,7 +142,21 @@
         "branches": {
         }
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/jobs/application_job.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/poros/movie.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/jobs/application_job.rb": {
         "lines": [
           0,
           0
@@ -223,7 +164,83 @@
         "branches": {
         }
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/channels/application_cable/connection.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/controllers/users_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/controllers/welcome_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/services/movie_service.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -233,7 +250,7 @@
         "branches": {
         }
       },
-      "/Users/jacksonvaldez/Turing/3module/viewing_party_lite/app/channels/application_cable/channel.rb": {
+      "/Users/thefluffypanda/turing/3mod/1project/viewing_party_lite/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -244,6 +261,6 @@
         }
       }
     },
-    "timestamp": 1643827966
+    "timestamp": 1643842151
   }
 }
