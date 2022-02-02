@@ -18,7 +18,7 @@ RSpec.describe "User Show/Dashboard Page" do
 
   it 'displays username of user' do
     expect(page).to have_content("john's Dashboard")
-    save_and_open_page
+    # save_and_open_page
   end
 
   it 'has a button to discover movies' do
@@ -31,7 +31,7 @@ RSpec.describe "User Show/Dashboard Page" do
     expect(current_path).to eq("/users/#{@user_1.id}/discover")
   end
 
-  xit 'lists viewing parties' do
+  it 'lists viewing parties' do
     # strftime("%-d %B %Y,%l:%M %P")
     within "party-#{@party_1.id}" do
       expect(page).to have_content("Hosted By: john")
