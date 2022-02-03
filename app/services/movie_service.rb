@@ -14,9 +14,9 @@ class MovieService
     get_url("search/movie?api_key=#{api_key}&language=en-US&query=#{query}&page=1&include_adult=false")
   end
 
-  def top_rated_movies
+  def top_rated_movies(page)
     api_key = ENV['movie_api_key']
-    get_url("movie/top_rated?api_key=#{api_key}&language=en-US&page=1")
+    get_url("movie/top_rated?api_key=#{api_key}&language=en-US&page=#{page}")
   end
 
   def get_url(url)

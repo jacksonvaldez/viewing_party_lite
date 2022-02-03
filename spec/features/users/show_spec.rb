@@ -13,6 +13,15 @@ RSpec.describe "User Show/Dashboard Page" do
     PartyUser.create(viewing_party_id: @party_2.id, user_id: @user_1.id)
     PartyUser.create(viewing_party_id: @party_1.id, user_id: @user_2.id)
 
+    json_movie_11 = File.read('./spec/fixtures/movie_11.json')
+    json_movie_2 = File.read('./spec/fixtures/movie_2.json')
+    # binding.pry
+    stub_request(:get, "https://api.themoviedb.org/3/movie/11?api_key=#{ENV['movie_api_key']}&language=en-US").
+         to_return(status: 200, body: json_movie_11, headers: {})
+    stub_request(:get, "https://api.themoviedb.org/3/movie/2?api_key=#{ENV['movie_api_key']}&language=en-US").
+         to_return(status: 200, body: json_movie_2, headers: {})
+
+
     visit "/users/#{@user_1.id}"
   end
 
