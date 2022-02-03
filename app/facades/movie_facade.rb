@@ -5,8 +5,12 @@ class MovieFacade
     Movie.new(data)
   end
 
-  def top_rated_movies
-    service.top_rated_movies[:results].map{|data| TopRatedMovies.new(data)}
+  def top_rated_movies(pages)
+    top_rated_movies = []
+    pages.times do |i|
+      service.top_rated_movies(i + 1)[:results].map{|data| top_rated_movies << TopRatedMovies.new(data)}
+    end
+    top_rated_movies
   end
 
   def search_movies(query)
