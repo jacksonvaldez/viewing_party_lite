@@ -36,9 +36,10 @@ Viewing Party Lite is an application in which users can explore movie options an
 
 - Rails 5.2.6
 
-##Contributors
+## Contributors
 
 [Jackson Valdez](https://github.com/jacksonvaldez)
+
 [Josh Walsh](https://github.com/jaw772)
 
 
