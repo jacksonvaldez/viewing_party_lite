@@ -1,0 +1,15 @@
+<h1><%= @movie.title%></h1>
+
+<%= form_with url:"/users/#{params[:user_id]}/movies/#{params[:movie_id]}/viewing_parties", method: :post, local: true do |f| %>
+  <%= f.label "Duration: " %>
+  <%= f.number_field :duration, value: @movie.runtime, min: @movie.runtime %><br>
+  <%= f.label "Start Date: " %>
+  <%= f.date_field :start_date, min: Date.today %><br>
+  <%= f.label "Start Time: " %>
+  <%= f.time_field :start_time %><br>
+  <% @users.each do |user| %>
+    <%= f.label "#{user.username}" %>
+    <%= f.check_box "usernames[#{user.id}]"%> <br>
+  <% end %>
+  <%= f.submit "Create Party"%>
+<% end %>

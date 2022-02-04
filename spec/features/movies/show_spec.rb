@@ -31,7 +31,7 @@ RSpec.describe "Movie Show/Details Page" do
   it 'the button to create a viewing party takes you to correct path' do
     click_on("Create Viewing Party For #{@movie.title}")
 
-    expect(current_path).to eq("/users/#{@user.id}/movies/#{@movie.movie_id}/viewing_party/new")
+    expect(current_path).to eq("/users/#{@user.id}/movies/#{@movie.movie_id}/viewing_parties/new")
   end
 
   it 'displays a button to go to the discover page' do
@@ -46,7 +46,6 @@ RSpec.describe "Movie Show/Details Page" do
 
 
   it 'displays movie attributes' do
-    save_and_open_page
     expect(page).to have_content(@movie.title)
     expect(page).to have_content(@movie.vote_average)
     expect(page).to have_content(@movie.runtime)
