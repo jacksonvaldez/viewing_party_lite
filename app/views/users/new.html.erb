@@ -1,12 +1,12 @@
 <%= form_with url: '/users', model: User.new, local: true do |f| %>
   <%= f.label "Username:" %>
-  <%= f.text_field :username %>
+  <%= f.text_field :username, required: 'required' %>
 
   <%= f.label "Email:" %>
-  <%= f.email_field :email %>
+  <%= f.email_field :email, required: 'required' %>
 
   <%= f.label "New Password:" %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, required: 'required' %>
 
   <%= f.submit "Register" %>
 <% end %>

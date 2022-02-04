@@ -4,15 +4,13 @@ class MoviesController < ApplicationController
     # require "pry"; binding.pry
     @facade = MovieFacade.new
     if params[:q] == "top_20_rated"
-      @movies = @facade.top_rated_movies(2)
+      @movies = @facade.top_rated_movies(2).first(40)
     elsif params[:q] != "" && params[:q][0] != " "
-      @movies = @facade.search_movies(params[:q] ||= "")
+      @movies = @facade.search_movies(params[:q] ||= "").first(40)
     else
       flash[:alert] = 'Search Cannot Be Blank'
-      @movies = []
       redirect_to "/users/#{params[:user_id]}/discover"
     end
-    @movies.first(40)
   end
 
   def show

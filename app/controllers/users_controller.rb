@@ -11,20 +11,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(
+    user = User.create(
       username: params[:user][:username],
       email: params[:user][:email],
       password: params[:user][:password]
     )
 
-    if user.save
-      # something
-      redirect_to "/users/#{user.id}"
-    else
-      user.errors.messages.each do |field, error|
-        flash[field] = "#{field} #{error.first}"
-      end
-      redirect_to "/register"
-    end
+    redirect_to "/users/#{user.id}"
   end
 end

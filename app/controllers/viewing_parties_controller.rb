@@ -13,7 +13,10 @@ class ViewingPartiesController < ApplicationController
       duration: params[:duration],
       start_date: datetime,
     )
+
     party_goers = params[:usernames]
+    party_goers ||= []
+    
     party_goers.each do |user_id, selected|
       if selected == "1"
         PartyUser.create(viewing_party_id: viewing_party.id, user_id: user_id )
