@@ -1,11 +1,12 @@
 class MoviesController < ApplicationController
 
   def index
+    # require "pry"; binding.pry
     @facade = MovieFacade.new
     if params[:q] == "top_20_rated"
       @movies = @facade.top_rated_movies(2)
     else
-      @movies = @facade.search_movies(params[:q])
+      @movies = @facade.search_movies(params[:q] ||= "")
     end
     @movies.first(40)
   end

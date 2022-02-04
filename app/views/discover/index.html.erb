@@ -1,6 +1,6 @@
 <h1>Discover Movies</h1>
 
-<%= form_with url: "movies", method: :get do |f|%>
+<%= form_with url: "movies", method: :get, local: true do |f|%>
   <%= f.text_field :q %>
   <%= f.submit "Find Movies" %>
 <% end %>

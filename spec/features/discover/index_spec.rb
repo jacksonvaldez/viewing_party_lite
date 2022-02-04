@@ -33,6 +33,7 @@ RSpec.describe "Discover movies index page" do
 
   it "displays a text field and button to search for movies" do
     expect(page).to have_field(:q)
+    fill_in :q, with: "John Wick"
     expect(page).to have_button("Find Movies")
   end
 
