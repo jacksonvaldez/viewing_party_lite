@@ -1,4 +1,5 @@
 class MovieService
+  attr_reader :request_urls, :api_key
 
   def initialize
     @request_urls = {}
