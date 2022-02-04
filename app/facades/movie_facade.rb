@@ -1,5 +1,19 @@
 class MovieFacade
 
+  def movie_cast_members(movie_id)
+    data = service.movie_cast_members(movie_id)
+    data[:cast].map do |cast_data|
+      CastMember.new(cast_data)
+    end
+  end
+
+  def reviews(movie_id)
+    data = service.reviews(movie_id)
+    data[:results].map do |review_data|
+      Review.new(review_data)
+    end
+  end
+
   def get_movie_by_id(id)
     data = service.movie_id_search(id)
     Movie.new(data)

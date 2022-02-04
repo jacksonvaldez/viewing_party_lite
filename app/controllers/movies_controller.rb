@@ -9,10 +9,12 @@ class MoviesController < ApplicationController
     end
     @movies.first(40)
   end
-  
+
   def show
     @facade = MovieFacade.new
     @movie = @facade.get_movie_by_id(params[:movie_id])
+    @reviews = @facade.reviews(params[:movie_id])
+    @cast_members = @facade.movie_cast_members(params[:movie_id]).first(10)
   end
 
 end

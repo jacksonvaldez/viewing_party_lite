@@ -2,21 +2,27 @@ class MovieService
 
   def initialize
     @request_urls = {}
+    @api_key = ENV['movie_api_key']
+  end
+
+  def movie_cast_members(movie_id)
+    get_url("movie/#{movie_id}/credits?api_key=#{@api_key}&language=en-US")
+  end
+
+  def reviews(movie_id)
+    get_url("movie/#{movie_id}/reviews?api_key=#{@api_key}&language=en-US&page=1")
   end
 
   def movie_id_search(id)
-    api_key = ENV['movie_api_key']
-    get_url("movie/#{id}?api_key=#{api_key}&language=en-US")
+    get_url("movie/#{id}?api_key=#{@api_key}&language=en-US")
   end
 
   def search_movies(query)
-    api_key = ENV['movie_api_key']
-    get_url("search/movie?api_key=#{api_key}&language=en-US&query=#{query}&page=1&include_adult=false")
+    get_url("search/movie?api_key=#{@api_key}&language=en-US&query=#{query}&page=1&include_adult=false")
   end
 
   def top_rated_movies(page)
-    api_key = ENV['movie_api_key']
-    get_url("movie/top_rated?api_key=#{api_key}&language=en-US&page=#{page}")
+    get_url("movie/top_rated?api_key=#{@api_key}&language=en-US&page=#{page}")
   end
 
   def get_url(url)

@@ -10,9 +10,14 @@ RSpec.describe 'Movies Index/Results Page' do
     json_top_rated_page_2 = File.read('./spec/fixtures/top_rated_page_2.json')
     json_movie_search_john_wick = File.read('./spec/fixtures/movie_search_john_wick.json')
 
-    stub_request(:get, "https://api.themoviedb.org/3/movie/651445?api_key=5541ce636367711212b1d8af399551fe&language=en-US").
+    json_credits_movie_730154 = File.read('./spec/fixtures/credits_movie_730154.json')
+    json_credits_movie_651445 = File.read('./spec/fixtures/credits_movie_651445.json')
+    json_reviews_movie_730154 = File.read('./spec/fixtures/reviews_movie_730154.json')
+    json_reviews_movie_651445 = File.read('./spec/fixtures/reviews_movie_651445.json')
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/651445?api_key=#{ENV['movie_api_key']}&language=en-US").
          to_return(status: 200, body: json_movie_651445, headers: {})
-    stub_request(:get, "https://api.themoviedb.org/3/movie/730154?api_key=5541ce636367711212b1d8af399551fe&language=en-US").
+    stub_request(:get, "https://api.themoviedb.org/3/movie/730154?api_key=#{ENV['movie_api_key']}&language=en-US").
          to_return(status: 200, body: json_movie_730154, headers: {})
     stub_request(:get, "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['movie_api_key']}&language=en-US&page=1").
          to_return(status: 200, body: json_top_rated_page_1, headers: {})
@@ -21,6 +26,15 @@ RSpec.describe 'Movies Index/Results Page' do
 
     stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=#{ENV['movie_api_key']}&include_adult=false&language=en-US&page=1&query=John%20Wick").
          to_return(status: 200, body: json_movie_search_john_wick, headers: {})
+
+    stub_request(:get, "https://api.themoviedb.org/3/movie/730154/reviews?api_key=#{ENV['movie_api_key']}&language=en-US&page=1").
+         to_return(status: 200, body: json_reviews_movie_730154, headers: {})
+    stub_request(:get, "https://api.themoviedb.org/3/movie/651445/reviews?api_key=#{ENV['movie_api_key']}&language=en-US&page=1").
+         to_return(status: 200, body: json_reviews_movie_651445, headers: {})
+    stub_request(:get, "https://api.themoviedb.org/3/movie/730154/credits?api_key=#{ENV['movie_api_key']}&language=en-US").
+         to_return(status: 200, body: json_credits_movie_730154, headers: {})
+    stub_request(:get, "https://api.themoviedb.org/3/movie/651445/credits?api_key=#{ENV['movie_api_key']}&language=en-US").
+         to_return(status: 200, body: json_credits_movie_651445, headers: {})
 
     visit "/users/#{@user.id}/discover"
   end
