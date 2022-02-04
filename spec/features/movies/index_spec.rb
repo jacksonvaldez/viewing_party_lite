@@ -97,4 +97,11 @@ RSpec.describe 'Movies Index/Results Page' do
     click_on("John Wick Chapter 2: Wick-vizzed")
     expect(current_path).to eq("/users/#{@user.id}/movies/651445")
   end
+
+  it 'doesnt allow blank searches for movie search' do
+    click_on("Find Movies")
+
+    expect(current_path).to eq("/users/#{@user.id}/discover")
+    expect(page).to have_content("Search Cannot Be Blank")
+  end
 end

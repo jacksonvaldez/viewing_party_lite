@@ -5,8 +5,12 @@ class MoviesController < ApplicationController
     @facade = MovieFacade.new
     if params[:q] == "top_20_rated"
       @movies = @facade.top_rated_movies(2)
-    else
+    elsif params[:q] != "" && params[:q][0] != " "
       @movies = @facade.search_movies(params[:q] ||= "")
+    else
+      flash[:alert] = 'Search Cannot Be Blank'
+      @movies = []
+      redirect_to "/users/#{params[:user_id]}/discover"
     end
     @movies.first(40)
   end

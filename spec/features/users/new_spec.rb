@@ -24,4 +24,28 @@ RSpec.describe "New User Form" do
 
     expect(current_path).to eq("/users/#{added_user.id}")
   end
+
+  context 'sad paths' do
+    it 'doesnt accept blank fields' do
+      click_on "Register"
+
+      expect(current_path).to eq('/register')
+      expect(page).to have_content("username can't be blank")
+      expect(page).to have_content("email can't be blank")
+      expect(page).to have_content("password can't be blank")
+    end
+
+    it 'doesnt allow taken emails/usernames' do
+      user = User.create!(username: 'taken_username', email: 'taken_email', password: '123')
+
+      fill_in(:user_username, with: 'taken_username')
+      fill_in(:user_email, with: 'taken_email')
+      click_on "Register"
+
+      expect(current_path).to eq('/register')
+      expect(page).to have_content("username has already been taken")
+      expect(page).to have_content("email has already been taken")
+    end
+  end
+
 end
