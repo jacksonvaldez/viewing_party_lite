@@ -1,21 +1,34 @@
 # Viewing Party
 
-This is the base repo for the [Viewing Party Lite project](https://backend.turing.io/module3/projects/viewing_party_lite) used for Turing's Backend Module 3.
 
 ### About this Project
 
-Viewing Part Lite is an application in which users can explore movie options and create a viewing party event for themselves and other users of the application.
+Viewing Party Lite is an application in which users can explore movie options and create a viewing party event for themselves and other users of the application.
 
-## Setup for the use of the project
+### Skills Used
+- API Consumption via Facade/Service Design Pattern
+- Ruby on Rails
+- MVC
+- Sad Path/Edge Case Management
 
-1. A conveyor belt link will be sent out at project kickoff so that you can both fork and copy the project board on this base repo. 
+### Main Gems Used
+- Faraday         - Orderly
+- Bcrypt          - Figaro
+- RSPec           - Webmock
+- Capybara        - SimpleCov
+- ShouldaMatchers - Pry
+
 
 ## Local Setup for any other use
 
 1. Fork and Clone the repo
 2. Install gem packages: `bundle install`
-3. Setup the database: `rails db:create`
+3. Setup the database: `rails db:{create, migrate}`
+4. Rails s
 
+## Global Access via Heroku
+
+[Viewing Party Lite](https://module-3-project-1.herokuapp.com/)
 
 ## Versions
 
@@ -23,4 +36,12 @@ Viewing Part Lite is an application in which users can explore movie options and
 
 - Rails 5.2.6
 
-Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party_lite/wireframes)
+## Contributors
+
+[Jackson Valdez](https://github.com/jacksonvaldez)
+
+[Josh Walsh](https://github.com/jaw772)
+
+
+### Base Repo
+This is the base repo for the [Viewing Party Lite project](https://backend.turing.io/module3/projects/viewing_party_lite) used for Turing's Backend Module 3.
