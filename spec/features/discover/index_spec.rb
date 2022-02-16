@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Discover movies index page" do
   before :each do
-    @user = User.create(username: "Phil", email: "phil@yahoo.com", password: "5678")
+    @user = User.create(username: "Phil", email: "phil@yahoo.com", password: "5678", password_confirmation: '5678')
 
     json_top_rated_page_1 = File.read('./spec/fixtures/top_rated_page_1.json')
     json_top_rated_page_2 = File.read('./spec/fixtures/top_rated_page_2.json')

@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "User Show/Dashboard Page" do
 
   before(:each) do
-    @user_1 = User.create!(username: 'john', email: 'john@gmail.com', password: 'supersecret')
-    @user_2 = User.create!(username: 'sarah', email: 'sarah@gmail.com', password: 'supersecret123')
+    @user_1 = User.create!(username: 'john', email: 'john@gmail.com', password: 'supersecret', password_confirmation: 'supersecret')
+    @user_2 = User.create!(username: 'sarah', email: 'sarah@gmail.com', password: 'supersecret123', password_confirmation: 'supersecret123')
 
     @party_1 = ViewingParty.create!(movie_id: 2, duration: 130, start_date: '2022-02-01 21:26:47', user_id: @user_1.id)
     @party_2 = ViewingParty.create!(movie_id: 11, duration: 150, start_date: '2023-02-01 21:26:47', user_id: @user_2.id)

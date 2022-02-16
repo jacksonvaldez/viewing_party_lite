@@ -8,5 +8,8 @@
   <%= f.label "New Password:" %>
   <%= f.password_field :password, required: 'required' %>
 
+  <%= f.label "Confirm Password:" %>
+  <%= f.password_field :password_confirmation, required: 'required' %>
+
   <%= f.submit "Register" %>
 <% end %>

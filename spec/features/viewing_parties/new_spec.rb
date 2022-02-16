@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Viewing Party new page" do
   before(:each) do
-    @user = User.create!(username: 'john', email: 'john@gmail.com', password: 'supersecret')
-    @user_2 = User.create!(username: 'jeff', email: 'jeff@gmail.com', password: 'supersecret')
-    @user_3 = User.create!(username: 'ken', email: 'ken@gmail.com', password: 'supersecret')
+    @user = User.create!(username: 'john', email: 'john@gmail.com', password: 'supersecret', password_confirmation: 'supersecret')
+    @user_2 = User.create!(username: 'jeff', email: 'jeff@gmail.com', password: 'supersecret', password_confirmation: 'supersecret')
+    @user_3 = User.create!(username: 'ken', email: 'ken@gmail.com', password: 'supersecret', password_confirmation: 'supersecret')
     json_movie_11 = File.read('./spec/fixtures/movie_11.json')
     stub_request(:get, "https://api.themoviedb.org/3/movie/11?api_key=#{ENV['movie_api_key']}&language=en-US").
          to_return(status: 200, body: json_movie_11, headers: {})
@@ -62,5 +62,5 @@ RSpec.describe "Viewing Party new page" do
     expect(page).to have_content("1 January 2023,10:00 pm")
     expect(page).to have_content("Invited")
     expect(page).to have_content('Guest: jeff')
-  end 
+  end
 end

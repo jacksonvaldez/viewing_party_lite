@@ -18,6 +18,7 @@ RSpec.describe "New User Form" do
     fill_in(:user_username, with: 'john')
     fill_in(:user_email, with: 'john@yahoo.com')
     fill_in(:user_password, with: 'password123')
+    fill_in(:user_password_confirmation, with: 'password123')
     click_on "Register"
 
     added_user = User.where(username: 'john', email: 'john@yahoo.com').first
@@ -36,7 +37,7 @@ RSpec.describe "New User Form" do
     end
 
     it 'doesnt allow taken emails/usernames' do
-      user = User.create!(username: 'taken_username', email: 'taken_email', password: '123')
+      user = User.create!(username: 'taken_username', email: 'taken_email', password: '123', password_confirmation: '123')
 
       fill_in(:user_username, with: 'taken_username')
       fill_in(:user_email, with: 'taken_email')
@@ -45,6 +46,15 @@ RSpec.describe "New User Form" do
       expect(current_path).to eq('/register')
       expect(page).to have_content("username has already been taken")
       expect(page).to have_content("email has already been taken")
+    end
+    it 'doesnt shows flash message is password and password_confirmation are not the same' do
+      fill_in(:user_username, with: 'john')
+      fill_in(:user_email, with: 'john@yahoo.com')
+      fill_in(:user_password, with: 'password123')
+      fill_in(:user_password_confirmation, with: 'different123')
+      click_on "Register"
+
+      expect(page).to have_content("password_confirmation doesn't match Password")
     end
   end
 

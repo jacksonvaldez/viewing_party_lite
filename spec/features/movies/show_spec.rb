@@ -15,7 +15,7 @@ RSpec.describe "Movie Show/Details Page" do
          to_return(status: 200, body: json_movie_11, headers: {})
 
 
-    @user = User.create!(username: 'sara', email: 'sara@gmail.com', password: 'helloworld123!!')
+    @user = User.create!(username: 'sara', email: 'sara@gmail.com', password: 'helloworld123!!', password_confirmation: 'helloworld123!!')
     @facade = MovieFacade.new
     @movie = @facade.get_movie_by_id(11)
     @reviews = @facade.reviews(11)
