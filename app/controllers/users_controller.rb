@@ -11,12 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(
-      username: params[:user][:username],
-      email: params[:user][:email],
-      password: params[:user][:password],
-      password_confirmation: params[:user][:password_confirmation]
-    )
+    user = User.new(user_params)
 
     if user.save
       redirect_to "/users/#{user.id}"
@@ -45,6 +40,12 @@ class UsersController < ApplicationController
     else
       redirect_to "/login"
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 
 end
