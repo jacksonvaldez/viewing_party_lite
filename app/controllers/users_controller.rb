@@ -27,4 +27,24 @@ class UsersController < ApplicationController
       redirect_to "/register"
     end
   end
+
+  def login_form
+
+  end
+
+  def login_user
+    user = User.find_by(email: params[:user_email])
+
+    if user.class == User
+      user = user.authenticate(params[:user_password])
+      if user.class == User
+        redirect_to "/users/#{user.id}"
+      else
+        redirect_to "/login"
+      end
+    else
+      redirect_to "/login"
+    end
+  end
+
 end

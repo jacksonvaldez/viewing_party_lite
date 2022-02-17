@@ -18,6 +18,16 @@ RSpec.describe "Welcome Page" do
     expect(current_path).to eq("/register")
   end
 
+  it 'displays a link to login as an existing user' do
+    expect(page).to have_link("Log In")
+  end
+
+  it 'the login link takes user to correct path' do
+    click_on "Log In"
+    # binding.pry
+    expect(current_path).to eq("/login")
+  end
+
   it 'lists existing users with a link for their dashboard' do
     carol = User.create!(username: "Carol", email: "carol@gmail.com", password: "1234", password_confirmation: '1234')
     timmy = User.create!(username: "Timmy", email: "timmy@gmail.com", password: "5678", password_confirmation: '5678')
