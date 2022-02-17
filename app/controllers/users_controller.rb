@@ -3,18 +3,29 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @facade = MovieFacade.new
+    @user = User.find_by(id: session[:user_id])
+    if @user
+      @facade = MovieFacade.new
 
-    @invited_parties = @user.viewing_parties
-    @hosted_parties = ViewingParty.where(user_id: @user.id)
+      @invited_parties = @user.viewing_parties
+      @hosted_parties = ViewingParty.where(user_id: @user.id)
+    else
+      flash[:authorization_error] = "You must login to visit your dashboard"
+      redirect_to "/"
+    end
+  end
+
+  def logout
+    session.destroy
+    redirect_to "/"
   end
 
   def create
     user = User.new(user_params)
 
     if user.save
-      redirect_to "/users/#{user.id}"
+      session[:user_id] = user.id
+      redirect_to "/dashboard"
     else
       user.errors.messages.each do |field, error|
         flash[field] = "#{field} #{error.first}"
@@ -30,17 +41,13 @@ class UsersController < ApplicationController
   def login_user
     user = User.find_by(email: params[:user_email])
 
-    if user.class == User
-      user = user.authenticate(params[:user_password])
-      if user.class == User
-        flash[:success] = 'You have successfully logged in'
-        redirect_to "/users/#{user.id}"
-      else
-        flash[:error] = 'invalid credentials'
-        redirect_to "/login"
-      end
+    # save_and_open_page
+    if user && user.authenticate(params[:user_password])
+      session[:user_id] = user.id
+      flash[:success] = 'You have successfully logged in'
+      redirect_to "/dashboard"
     else
-      flash[:error] = 'email not found'
+      flash[:error] = 'invalid credentials'
       redirect_to "/login"
     end
   end

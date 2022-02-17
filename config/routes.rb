@@ -5,14 +5,16 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new'
   get '/login', to: 'users#login_form'
   post '/login', to: 'users#login_user'
-  get '/users/:id', to: 'users#show'
+  get '/dashboard', to: 'users#show'
   post '/users', to: 'users#create'
 
-  get '/users/:id/discover', to: 'discover#index'
+  get '/discover', to: 'discover#index'
 
-  get '/users/:user_id/movies/:movie_id', to: 'movies#show'
-  get '/users/:user_id/movies', to: 'movies#index'
+  get '/movies/:movie_id', to: 'movies#show'
+  get '/movies', to: 'movies#index'
 
-  get '/users/:user_id/movies/:movie_id/viewing_parties/new', to: 'viewing_parties#new'
-  post '/users/:user_id/movies/:movie_id/viewing_parties', to: 'viewing_parties#create'
+  get '/movies/:movie_id/viewing_parties/new', to: 'viewing_parties#new'
+  post '/movies/:movie_id/viewing_parties', to: 'viewing_parties#create'
+
+  delete '/logout', to: 'users#logout'
 end

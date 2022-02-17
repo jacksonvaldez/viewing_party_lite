@@ -5,11 +5,18 @@ RSpec.describe "Viewing Party new page" do
     @user = User.create!(username: 'john', email: 'john@gmail.com', password: 'supersecret', password_confirmation: 'supersecret')
     @user_2 = User.create!(username: 'jeff', email: 'jeff@gmail.com', password: 'supersecret', password_confirmation: 'supersecret')
     @user_3 = User.create!(username: 'ken', email: 'ken@gmail.com', password: 'supersecret', password_confirmation: 'supersecret')
+
+    #login
+    visit '/login'
+    fill_in(:user_email, with: 'john@gmail.com')
+    fill_in(:user_password, with: 'supersecret')
+    click_on "Log In"
+
     json_movie_11 = File.read('./spec/fixtures/movie_11.json')
     stub_request(:get, "https://api.themoviedb.org/3/movie/11?api_key=#{ENV['movie_api_key']}&language=en-US").
          to_return(status: 200, body: json_movie_11, headers: {})
 
-   visit "/users/#{@user.id}/movies/11/viewing_parties/new"
+   visit "/movies/11/viewing_parties/new"
   end
 
   it 'displays the movie title' do
@@ -40,7 +47,7 @@ RSpec.describe "Viewing Party new page" do
     check "usernames[#{@user_2.id}]"
     click_on "Create Party"
 
-    expect(current_path).to eq("/users/#{@user.id}")
+    expect(current_path).to eq("/dashboard")
     expect(page).to have_content("Hosted By: john")
     expect(page).to have_link("Star Wars")
     expect(page).to have_content("1 January 2023,10:00 pm")
@@ -56,7 +63,13 @@ RSpec.describe "Viewing Party new page" do
     check "usernames[#{@user_2.id}]"
     click_on "Create Party"
 
-    visit "/users/#{@user_2.id}"
+    visit '/login'
+    fill_in(:user_email, with: 'jeff@gmail.com')
+    fill_in(:user_password, with: 'supersecret')
+    click_on "Log In"
+
+
+    visit "/dashboard"
     expect(page).to have_content("Hosted By: john")
     expect(page).to have_link("Star Wars")
     expect(page).to have_content("1 January 2023,10:00 pm")

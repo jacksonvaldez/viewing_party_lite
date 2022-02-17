@@ -6,10 +6,16 @@ RSpec.describe "User Show/Dashboard Page" do
     @user_1 = User.create!(username: 'john', email: 'john@gmail.com', password: 'supersecret', password_confirmation: 'supersecret')
     @user_2 = User.create!(username: 'sarah', email: 'sarah@gmail.com', password: 'supersecret123', password_confirmation: 'supersecret123')
 
+    #login
+    visit '/login'
+    fill_in(:user_email, with: 'john@gmail.com')
+    fill_in(:user_password, with: 'supersecret')
+    click_on "Log In"
+
     @party_1 = ViewingParty.create!(movie_id: 2, duration: 130, start_date: '2022-02-01 21:26:47', user_id: @user_1.id)
     @party_2 = ViewingParty.create!(movie_id: 11, duration: 150, start_date: '2023-02-01 21:26:47', user_id: @user_2.id)
     @party_3 = ViewingParty.create!(movie_id: 33, duration: 1000, start_date: '2024-02-01 21:26:47', user_id: @user_2.id)
-    # binding.pry
+
     PartyUser.create(viewing_party_id: @party_2.id, user_id: @user_1.id)
     PartyUser.create(viewing_party_id: @party_1.id, user_id: @user_2.id)
 
@@ -19,7 +25,7 @@ RSpec.describe "User Show/Dashboard Page" do
     json_credits_movie_2 = File.read('./spec/fixtures/credits_movie_2.json')
     json_reviews_movie_11 = File.read('./spec/fixtures/reviews_movie_11.json')
     json_reviews_movie_2 = File.read('./spec/fixtures/reviews_movie_2.json')
-    # binding.pry
+
     stub_request(:get, "https://api.themoviedb.org/3/movie/11?api_key=#{ENV['movie_api_key']}&language=en-US").
          to_return(status: 200, body: json_movie_11, headers: {})
     stub_request(:get, "https://api.themoviedb.org/3/movie/2?api_key=#{ENV['movie_api_key']}&language=en-US").
@@ -33,7 +39,7 @@ RSpec.describe "User Show/Dashboard Page" do
     stub_request(:get, "https://api.themoviedb.org/3/movie/11/reviews?api_key=#{ENV['movie_api_key']}&language=en-US&page=1").
          to_return(status: 200, body: json_reviews_movie_11, headers: {})
 
-    visit "/users/#{@user_1.id}"
+    visit "/dashboard"
   end
 
   it 'displays username of user' do
@@ -47,7 +53,7 @@ RSpec.describe "User Show/Dashboard Page" do
   it 'the discover movies button takes you to correct path' do
     click_on "Discover Movies"
 
-    expect(current_path).to eq("/users/#{@user_1.id}/discover")
+    expect(current_path).to eq("/discover")
   end
 
   it 'lists viewing parties' do
@@ -75,15 +81,25 @@ RSpec.describe "User Show/Dashboard Page" do
   it 'viewing party links take you to correct path - #1' do
     within "#party-#{@party_1.id}" do
       click_on("Ariel")
-      expect(current_path).to eq("/users/#{@user_1.id}/movies/#{@party_1.movie_id}")
+      expect(current_path).to eq("/movies/#{@party_1.movie_id}")
     end
   end
 
   it 'viewing party links take you to correct path - #2' do
     within "#party-#{@party_2.id}" do
       click_on("Star Wars")
-      expect(current_path).to eq("/users/#{@user_1.id}/movies/#{@party_2.movie_id}")
+      expect(current_path).to eq("/movies/#{@party_2.movie_id}")
     end
+  end
+
+  it 'if you visit dashboard as a visitor, it takes you back to landing page' do
+    visit '/'
+    click_on 'Log Out'
+
+    visit '/dashboard'
+
+    expect(current_path).to eq("/")
+    expect(page).to have_content("You must login to visit your dashboard")
   end
 
 end

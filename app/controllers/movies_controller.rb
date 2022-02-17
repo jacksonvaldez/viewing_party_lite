@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
       @movies = @facade.search_movies(params[:q] ||= "").first(40)
     else
       flash[:alert] = 'Search Cannot Be Blank'
-      redirect_to "/users/#{params[:user_id]}/discover"
+      redirect_to "/discover"
     end
   end
 

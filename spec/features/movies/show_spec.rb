@@ -21,7 +21,13 @@ RSpec.describe "Movie Show/Details Page" do
     @reviews = @facade.reviews(11)
     @cast_members = @facade.movie_cast_members(11)
 
-    visit ("/users/#{@user.id}/movies/#{@movie.movie_id}")
+    #login
+    visit '/login'
+    fill_in(:user_email, with: 'sara@gmail.com')
+    fill_in(:user_password, with: 'helloworld123!!')
+    click_on "Log In"
+
+    visit ("/movies/#{@movie.movie_id}")
   end
 
   it 'displays a button to create a viewing party' do
@@ -31,7 +37,7 @@ RSpec.describe "Movie Show/Details Page" do
   it 'the button to create a viewing party takes you to correct path' do
     click_on("Create Viewing Party For #{@movie.title}")
 
-    expect(current_path).to eq("/users/#{@user.id}/movies/#{@movie.movie_id}/viewing_parties/new")
+    expect(current_path).to eq("/movies/#{@movie.movie_id}/viewing_parties/new")
   end
 
   it 'displays a button to go to the discover page' do
@@ -41,7 +47,7 @@ RSpec.describe "Movie Show/Details Page" do
   it 'the button to go to discover page takes you to correct path' do
     click_on("Discover Page")
 
-    expect(current_path).to eq("/users/#{@user.id}/discover")
+    expect(current_path).to eq("/discover")
   end
 
 
@@ -56,6 +62,19 @@ RSpec.describe "Movie Show/Details Page" do
     expect(page).to have_content("Reviews (4)")
     expect(page).to have_content(@reviews.first.author)
     expect(page).to have_content(@reviews.first.content[0..20])
+  end
+
+  it 'if you click create viewing party button as a visitor, it will say you need to log in to create a viewing party' do
+    visit '/'
+    click_on 'Log Out'
+
+    visit "/movies/#{@movie.movie_id}"
+    click_on("Create Viewing Party For #{@movie.title}")
+
+    expect(current_path).to eq("/movies/#{@movie.movie_id}")
+    expect(page).to have_content("You must be logged in to create a viewing party")
+
+
   end
 
 end

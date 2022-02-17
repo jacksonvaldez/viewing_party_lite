@@ -1,7 +1,10 @@
 <h1>Viewing Party Lite</h1>
-<%= link_to "Log In", "/login" %>
-<%= button_to "Create User", "/register", method: :get %>
-
-<% @users.each do |user| %>
-  <h3><%= link_to "#{user.email}'s Dashboard", "/users/#{user.id}" %></h3>
+<% if session[:user_id] %>
+  <%= link_to "Log Out", "/logout", method: :delete %>
+  <% @users.each do |user| %>
+    <h3><%= user.email %></h3>
+  <% end %>
+<% else %>
+  <%= link_to "Log In", "/login" %>
+  <%= button_to "Create User", "/register", method: :get %>
 <% end %>

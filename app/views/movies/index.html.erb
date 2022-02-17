@@ -4,10 +4,10 @@
   <h1> Search Results For: <%= params[:q] %> </h1>
 <% end %>
 
-<%= button_to "Discover Page", "/users/#{params[:user_id]}/discover", method: :get %>
+<%= button_to "Discover Page", "/discover", method: :get %>
 
 <% @movies.each do |movie| %>
   <div id="movie-<%= movie.movie_id %>">
-    <p><%= link_to movie.title, "/users/#{params[:user_id]}/movies/#{movie.movie_id}" %>, Vote Average: <%= movie.vote_average %></p>
+    <p><%= link_to movie.title, "/movies/#{movie.movie_id}" %>, Vote Average: <%= movie.vote_average %></p>
   </div>
 <% end %>

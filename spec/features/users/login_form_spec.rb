@@ -20,6 +20,14 @@ RSpec.describe 'User Login Form' do
     fill_in(:user_password, with: 'passwordTuring123')
     click_on "Log In"
 
-    expect(current_path).to eq("/users/#{@user_1.id}")
+    expect(current_path).to eq("/dashboard")
+  end
+
+  it 'takes user back to login page with flash message if password is wrong' do
+    fill_in(:user_email, with: 'random@gmail.com')
+    fill_in(:user_password, with: 'wrong-password')
+    click_on "Log In"
+
+    expect(current_path).to eq("/login")
   end
 end

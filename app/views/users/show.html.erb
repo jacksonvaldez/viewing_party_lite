@@ -1,13 +1,13 @@
 <h1> <%= @user.username %>'s Dashboard </h1>
 
-<%= button_to "Discover Movies", "/users/#{@user.id}/discover", method: :get %>
+<%= button_to "Discover Movies", "/discover", method: :get %>
 
 <h1> Viewing Parties </h1>
 
 <% @invited_parties.each do |party| %>
   <div id="party-<%= party.id %>">
     <img src="<%="https://image.tmdb.org/t/p/original#{@facade.get_movie_by_id(party.movie_id).image_url}"%>" alt="img not here" width="100"><br>
-    <%= link_to "#{@facade.get_movie_by_id(party.movie_id).title}", "/users/#{@user.id}/movies/#{party.movie_id}" %><br>
+    <%= link_to "#{@facade.get_movie_by_id(party.movie_id).title}", "/movies/#{party.movie_id}" %><br>
     <%= party.start_date.strftime("%-d %B %Y,%l:%M %P") %><br>
     <p> Invited </p>
     <p> Hosted By: <%= User.find(party.user_id).username %></p>
@@ -23,7 +23,7 @@
 <% @hosted_parties.each do |party| %>
   <div id="party-<%= party.id %>">
     <img src="<%="https://image.tmdb.org/t/p/original#{@facade.get_movie_by_id(party.movie_id).image_url}"%>" alt="img not here" width="100"><br>
-    <%= link_to "#{@facade.get_movie_by_id(party.movie_id).title}", "/users/#{@user.id}/movies/#{party.movie_id}" %><br>
+    <%= link_to "#{@facade.get_movie_by_id(party.movie_id).title}", "/movies/#{party.movie_id}" %><br>
     <%= party.start_date.strftime("%-d %B %Y,%l:%M %P") %><br>
     <p> Hosting </p>
     <p> Hosted By: <%= User.find(party.user_id).username %></p>

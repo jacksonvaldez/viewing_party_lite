@@ -4,6 +4,12 @@ RSpec.describe 'Movies Index/Results Page' do
   before(:each) do
     @user = User.create!(username: 'john', email: 'john@gmail.com', password: 'supersecret', password_confirmation: 'supersecret')
 
+    #login
+    visit '/login'
+    fill_in(:user_email, with: 'john@gmail.com')
+    fill_in(:user_password, with: 'supersecret')
+    click_on "Log In"
+
     json_movie_651445 = File.read('./spec/fixtures/movie_651445.json')
     json_movie_730154 = File.read('./spec/fixtures/movie_730154.json')
     json_top_rated_page_1 = File.read('./spec/fixtures/top_rated_page_1.json')
@@ -36,7 +42,7 @@ RSpec.describe 'Movies Index/Results Page' do
     stub_request(:get, "https://api.themoviedb.org/3/movie/651445/credits?api_key=#{ENV['movie_api_key']}&language=en-US").
          to_return(status: 200, body: json_credits_movie_651445, headers: {})
 
-    visit "/users/#{@user.id}/discover"
+    visit "/discover"
   end
 
   it 'displays a button to take you back to discover page' do
@@ -45,7 +51,7 @@ RSpec.describe 'Movies Index/Results Page' do
     expect(page).to have_button("Discover Page")
     click_on("Discover Page")
 
-    expect(current_path).to eq("/users/#{@user.id}/discover")
+    expect(current_path).to eq("/discover")
   end
 
   it 'when you click top rated movies, it displays movie titles and vote averages' do
@@ -87,7 +93,7 @@ RSpec.describe 'Movies Index/Results Page' do
     click_on("Top Rated Movies")
 
     click_on("Your Eyes Tell")
-    expect(current_path).to eq("/users/#{@user.id}/movies/730154")
+    expect(current_path).to eq("/movies/730154")
   end
 
   it 'movie links take you to correct path #2' do
@@ -95,13 +101,13 @@ RSpec.describe 'Movies Index/Results Page' do
     click_on("Find Movies")
 
     click_on("John Wick Chapter 2: Wick-vizzed")
-    expect(current_path).to eq("/users/#{@user.id}/movies/651445")
+    expect(current_path).to eq("/movies/651445")
   end
 
   it 'doesnt allow blank searches for movie search' do
     click_on("Find Movies")
 
-    expect(current_path).to eq("/users/#{@user.id}/discover")
+    expect(current_path).to eq("/discover")
     expect(page).to have_content("Search Cannot Be Blank")
   end
 end

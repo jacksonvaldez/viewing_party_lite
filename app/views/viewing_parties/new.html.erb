@@ -1,6 +1,6 @@
 <h1><%= @movie.title%></h1>
 
-<%= form_with url:"/users/#{params[:user_id]}/movies/#{params[:movie_id]}/viewing_parties", method: :post, local: true do |f| %>
+<%= form_with url:"/movies/#{params[:movie_id]}/viewing_parties", method: :post, local: true do |f| %>
   <%= f.label "Duration: " %>
   <%= f.number_field :duration, value: @movie.runtime, min: @movie.runtime, required: 'required' %><br>
   <%= f.label "Start Date: " %>

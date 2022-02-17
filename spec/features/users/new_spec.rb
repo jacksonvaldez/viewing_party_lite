@@ -23,7 +23,7 @@ RSpec.describe "New User Form" do
 
     added_user = User.where(username: 'john', email: 'john@yahoo.com').first
 
-    expect(current_path).to eq("/users/#{added_user.id}")
+    expect(current_path).to eq("/dashboard")
   end
 
   context 'sad paths' do
