@@ -33,11 +33,14 @@ class UsersController < ApplicationController
     if user.class == User
       user = user.authenticate(params[:user_password])
       if user.class == User
+        flash[:success] = 'You have successfully logged in'
         redirect_to "/users/#{user.id}"
       else
+        flash[:error] = 'invalid credentials'
         redirect_to "/login"
       end
     else
+      flash[:error] = 'email not found'
       redirect_to "/login"
     end
   end
