@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   get "/", to: 'welcome#index'
 
   get '/register', to: 'users#new'
-  get '/login', to: 'users#login_form'
-  post '/login', to: 'users#login_user'
+
   get '/dashboard', to: 'users#show'
   post '/users', to: 'users#create'
 
@@ -16,5 +15,7 @@ Rails.application.routes.draw do
   get '/movies/:movie_id/viewing_parties/new', to: 'viewing_parties#new'
   post '/movies/:movie_id/viewing_parties', to: 'viewing_parties#create'
 
-  delete '/logout', to: 'users#logout'
+  get '/login', to: 'session#login_form'
+  post '/login', to: 'session#login_user'
+  delete '/logout', to: 'session#logout'
 end
